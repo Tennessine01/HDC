@@ -7,7 +7,7 @@ public class MapManager : MonoBehaviour
     public static MapManager Ins;
 
     [Header("Player HP")]
-    [SerializeField] private int playerHP = 10;
+    public int playerHP = 10;
     [Header("Danh sách TowerData (4 loại)")]
     [SerializeField] private TowerData[] towerDatas;
     [Header("Line Points")]
@@ -25,6 +25,9 @@ public class MapManager : MonoBehaviour
     public Bot activeBots;
     private int aliveBots = 0;
 
+    private CanvasGameplay cachedUI;
+
+
     // Để biết đã spawn xong tất cả wave chưa
     private bool allWavesSpawned = false;
 
@@ -36,6 +39,9 @@ public class MapManager : MonoBehaviour
     private void Start()
     {
         towerDatas = DataManager.ins.towerDatas;
+        cachedUI = FindObjectOfType<CanvasGameplay>();
+        cachedUI.UpdateGoldUI();
+        cachedUI.UpdateHealth();
         BuildRoadLine();
         StartCoroutine(SpawnWaves());
     }
@@ -66,12 +72,12 @@ public class MapManager : MonoBehaviour
     /// </summary>
     private IEnumerator SpawnWaves()
     {
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
 
         // Wave 1: 10 Bot Normal
         yield return StartCoroutine(SpawnOneWave(PoolType.Minion_1, 10));
 
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(30f);
 
         // Wave 2: 10 Bot Weak
         yield return StartCoroutine(SpawnOneWave(PoolType.Minion_2, 10));
@@ -103,7 +109,7 @@ public class MapManager : MonoBehaviour
             listBot.Add(newBot);
             newBot.OnInit();
 
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(2.3f);
         }
     }
     public void OnBotSpawned()
@@ -134,6 +140,7 @@ public class MapManager : MonoBehaviour
     public void PlayerTakeDamage(int dmg)
     {
         playerHP -= dmg;
+        cachedUI.UpdateHealth();
         Debug.Log("Player HP = " + playerHP);
 
         if (playerHP <= 0)
@@ -158,6 +165,13 @@ public class MapManager : MonoBehaviour
     public void AddGold(int amount)
     {
         playerGold += amount;
+        cachedUI.UpdateGoldUI();
     }
-    
+    private void UpdateGold()
+    {
+        if (cachedUI != null)
+        {
+            cachedUI.UpdateGoldUI();
+        }
+    }
 }

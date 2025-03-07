@@ -9,8 +9,8 @@ public class Constants
 public enum BulletType
 {
     None,
-    B_1,
-    B_2,
-    B_3,
-    B_4,
+    B_1 = PoolType.B_1,
+    B_2 = PoolType.B_2,
+    B_3 = PoolType.B_3,
+    B_4 = PoolType.B_4,
 }

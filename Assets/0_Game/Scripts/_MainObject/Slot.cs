@@ -4,7 +4,7 @@ public class Slot : MonoBehaviour
 {
     // Tower đang chiếm slot (nếu có). Null nếu slot trống.
     public Tower occupantTower = null;
-
+    
     [SerializeField] private GameObject highlightObj;
 
     private void Start()

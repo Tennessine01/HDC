@@ -336,6 +336,10 @@ public enum PoolType
     Minion_2,
     Minion_3,
     Minion_4,
+    B_1,
+    B_2,
+    B_3,
+    B_4,
 
 }
 
@@ -358,7 +362,5 @@ public abstract class GameUnit: MonoBehaviour
     public IngameType ID;
     public PoolType poolType;
 
-    public abstract void OnInit();
-    public abstract void OnDespawn();
 
 }

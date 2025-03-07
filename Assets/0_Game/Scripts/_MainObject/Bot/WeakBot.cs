@@ -6,7 +6,8 @@ public class WeakBot : Bot
 {
     private void Awake()
     {
-        maxHP = 50f;
-        speed = 5f;
+        maxHP = 20f;
+        speed = 2f;
+        money = 5;
     }
 }

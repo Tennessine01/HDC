@@ -7,6 +7,7 @@ public class ToughBot : Bot
     private void Awake()
     {
         maxHP = 200f; 
-        speed = 1.5f;
+        speed = 0.5f;
+        money = 20;
     }
 }

@@ -277,6 +277,9 @@ MonoBehaviour:
   slotLayer:
     serializedVersion: 2
     m_Bits: 64
+  towerLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,8 +533,23 @@ MonoBehaviour:
     collect: 1
     clamp: 0
   - root: {fileID: 1050989227}
-    prefab: {fileID: 8219089156127958298, guid: 5f0b572c091256541a3f487662b86c24, type: 3}
-    amount: 20
+    prefab: {fileID: 2102764392200752258, guid: 5f0b572c091256541a3f487662b86c24, type: 3}
+    amount: 100
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1050989227}
+    prefab: {fileID: -3245515190981610841, guid: 796af18ea18eefb4d8072497d4dd7544, type: 3}
+    amount: 100
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1050989227}
+    prefab: {fileID: 984151113345903615, guid: d6ffd50e042aa4243b946aeaaa019cb9, type: 3}
+    amount: 100
+    collect: 1
+    clamp: 0
+  - root: {fileID: 1050989227}
+    prefab: {fileID: 3581511740544455875, guid: 64998dfcfebe86843a1b6d3b44b17f14, type: 3}
+    amount: 100
     collect: 1
     clamp: 0
   Particle: []

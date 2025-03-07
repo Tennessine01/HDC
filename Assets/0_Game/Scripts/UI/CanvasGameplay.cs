@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,12 +9,15 @@ public class CanvasGameplay : UICanvas
 {
     #region Fields & Inspector
     [SerializeField] private TextMeshProUGUI txtGold;
+    [SerializeField] private TextMeshProUGUI txtHealth;
+
 
     private TowerData[] _towerDatas;
 
     [SerializeField] private TextMeshProUGUI[] towerCostTexts;
 
     [SerializeField] private Image[] icons;
+
 
     // Lưu giá hiện tại mỗi Tower (cứ mua xong thì +7)
     private static int[] currentCosts;
@@ -24,6 +28,7 @@ public class CanvasGameplay : UICanvas
     {
         PreLoadUI();
         UpdateGoldUI();
+        UpdateHealth();
     }
     #endregion
 
@@ -69,6 +74,13 @@ public class CanvasGameplay : UICanvas
         if (txtGold != null && MapManager.Ins != null)
         {
             txtGold.text = MapManager.Ins.playerGold.ToString();
+        }
+    }
+    public void UpdateHealth()
+    {
+        if (txtHealth != null && MapManager.Ins != null)
+        {
+            txtHealth.text = MapManager.Ins.playerHP.ToString();
         }
     }
     #endregion

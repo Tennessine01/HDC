@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
+using UnityEngine.TextCore.Text;
 
 public class Cache
 {
@@ -16,7 +17,17 @@ public class Cache
 
         return m_WFS[key];
     }
+    private static Dictionary<Collider2D, Bot> bots = new Dictionary<Collider2D, Bot>();
 
+    public static Bot GetBot(Collider2D collider)
+    {
+        if (!bots.ContainsKey(collider))
+        {
+            bots.Add(collider, collider.GetComponent<Bot>());
+        }
+
+        return bots[collider];
+    }
     //------------------------------------------------------------------------------------------------------------
 
 

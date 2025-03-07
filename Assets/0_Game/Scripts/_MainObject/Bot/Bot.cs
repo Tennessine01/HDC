@@ -6,15 +6,17 @@ public class Bot : GameUnit
     [Header("Bot Stats")]
     public float speed = 2f;
     public float maxHP = 50f;
+    public int money;
     private float currentHP;
-
+    public bool isDespawn;
     // Chỉ số damage lên nhà (khi đến End)
     public int damageToPlayerBase = 1;
-
+    public bool IsDead => currentHP <= 0;
     // Để di chuyển dọc line
     private int currentPathIndex = 0;
-    public override void OnInit()
+    public  void OnInit()
     {
+        isDespawn = false;
         // Reset HP
         currentHP = maxHP;
 
@@ -25,8 +27,9 @@ public class Bot : GameUnit
         MapManager.Ins.OnBotSpawned();
     }
 
-    public override void OnDespawn()
+    public void OnDespawn()
     {
+        isDespawn = true;
         MapManager.Ins.OnBotDespawned(this);
     }
     public void TakeDamage(float dmg)
@@ -37,11 +40,11 @@ public class Bot : GameUnit
             Die();
         }
     }
-    private void Die()
+    public virtual void Die()
     {
-        // Thông báo MapManager
         OnDespawn();
-        // Đưa bot về Pool
+        Debug.Log(money + "-----");
+        MapManager.Ins.AddGold(money);
         SimplePool.Despawn(this);
     }
 
@@ -77,8 +80,8 @@ public class Bot : GameUnit
                     // Gây damage cho Player
                     MapManager.Ins.PlayerTakeDamage(damageToPlayerBase);
 
-                    // Bot này xong nhiệm vụ => despawn
                     MapManager.Ins.OnBotDespawned(this);
+                    isDespawn = true;
                     SimplePool.Despawn(this);
                 }
             }

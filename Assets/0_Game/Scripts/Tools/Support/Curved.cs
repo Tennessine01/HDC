@@ -62,12 +62,12 @@ public class Curved : GameUnit
 		return new Vector3(onCircle.x, y, onCircle.y);
     }
 
-    public override void OnInit()
+    public  void OnInit()
     {
         throw new System.NotImplementedException();
     }
 
-    public override void OnDespawn()
+    public  void OnDespawn()
     {
         throw new System.NotImplementedException();
     }

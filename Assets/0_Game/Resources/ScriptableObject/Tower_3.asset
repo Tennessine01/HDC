@@ -14,5 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: Sniper
   towerIcon: {fileID: 21300000, guid: 943b7813e2f99504ab1eb775fc9841c4, type: 3}
-  towerPrefab: {fileID: 1598221744284035976, guid: ce25d6336a22c504ebde05a8d63f9cb3, type: 3}
+  bulletType: 7
+  towerPrefab: {fileID: 1598221744284035976, guid: c7caecd9e7de5c044b2bc687cdbc1cea, type: 3}
+  damages:
+  - 30
+  - 35
+  - 40
+  ranges:
+  - 4
+  - 5
+  - 6
+  fireRates:
+  - 1
+  - 1.5
+  - 2
   baseCost: 50

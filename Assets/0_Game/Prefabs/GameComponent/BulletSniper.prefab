@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5335927943358491490}
   - component: {fileID: 4741875161911502778}
   - component: {fileID: 3523247959061235615}
-  - component: {fileID: 8219089156127958298}
+  - component: {fileID: 984151113345903615}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: BulletSniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4381694185608748954}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52858406, y: -6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.26, y: 0.26, z: 0.26}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -74,9 +74,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.039248828, g: 0.9245283, b: 0.14955734, a: 1}
+  m_Color: {r: 0.9254902, g: 0.06551887, b: 0.039215688, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8219089156127958298
+--- !u!114 &984151113345903615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,10 +130,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4381694185608748954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90fc43a593e5422489d29bdd111f69b2, type: 3}
+  m_Script: {fileID: 11500000, guid: e57d391f7bf14e54e91cfea6b43717a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
-  poolType: 0
-  speed: 20
-  blType: 1
+  poolType: 7
+  speed: 10
+  blType: 7
